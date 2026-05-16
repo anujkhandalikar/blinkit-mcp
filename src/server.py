@@ -172,8 +172,9 @@ async def search(query: str) -> str:
         if results:
             print(f"\nFound {len(results)} results:")
             for item in results:
+                image_part = f" | IMG: {item['image_url']}" if item.get('image_url') else ""
                 print(
-                    f"[{item['index']}] ID: {item['id']} | {item['name']} - {item['price']}"
+                    f"[{item['index']}] ID: {item['id']} | {item['name']} - {item['price']}{image_part}"
                 )
         else:
             print("No results found.")
